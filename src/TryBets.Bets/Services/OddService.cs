@@ -12,7 +12,7 @@ public class OddService : IOddService
 
     public async Task<object> UpdateOdd(int MatchId, int TeamId, decimal BetValue)
     {
-        var apiUrl = $"https://localhost:5504/odd/{MatchId}/{TeamId}/{BetValue}";
+        var apiUrl = $"http://localhost:5504/{MatchId}/{TeamId}/{BetValue}";
 
             // Crie um objeto JSON para enviar, se necessário.
             // Exemplo: var json = JsonConvert.SerializeObject(objeto);
