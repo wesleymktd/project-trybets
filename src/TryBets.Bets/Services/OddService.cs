@@ -19,7 +19,7 @@ public class OddService : IOddService
 
             var content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
 
-            var response = await _client.PatchAsync(apiUrl, content);
+            var response = await _client.GetAsync(apiUrl);
 
             if (response.IsSuccessStatusCode)
             {
