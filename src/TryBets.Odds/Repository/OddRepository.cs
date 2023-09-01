@@ -15,10 +15,13 @@ public class OddRepository : IOddRepository
 
     public Match Patch(int MatchId, int TeamId, string BetValue)
     {
-        if (!decimal.TryParse(BetValue, out decimal betValueDecimal))
-        {
-            throw new ArgumentException("BetValue não é um número decimal válido.");
-        }
+        
+        var betValueDecimal = decimal.Parse(BetValue.Replace(",", "."), CultureInfo.InvariantCulture);
+        
+        // if (!decimal.TryParse(BetValue, out decimal betValueDecimal))
+        // {
+        //     throw new ArgumentException("BetValue não é um número decimal válido.");
+        // }
 
         Match findedMatch = _context.Matches.FirstOrDefault(m => m.MatchId == MatchId)!;
         if (findedMatch == null) throw new Exception("Match not founded");
